@@ -1,0 +1,277 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\wifewifi.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\wifewifi.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_WIFEWIFI_DIALOG DIALOGEX 0, 0, 457, 337
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "路由器刷机工具 By:殷悦 WiFeWiFi.com"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT1,279,43,169,263,ES_MULTILINE
+    CONTROL         "Tab2",IDC_TAB1,"SysTabControl32",0x0,7,31,264,275
+    LTEXT           "路由器型号:",IDC_STATIC,18,12,46,12
+    PUSHBUTTON      "一键刷机  （我已经阅读上述说明并完成操作）",IDC_SHUAJI,
+                    9,266,247,26
+    GROUPBOX        "自定义信息",IDC_PEIZHI3,11,47,255,72
+    LTEXT           "WiFi名称:\n\nWiFi密码:\n\n信号强度:",IDC_PEIZHI1,19,60,
+                    36,41
+    EDITTEXT        IDC_EDIT4,57,58,194,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT5,57,75,194,14,ES_PASSWORD | ES_AUTOHSCROLL
+    GROUPBOX        "必需信息",IDC_PEIZHI4,11,128,255,129
+    LTEXT           "你的学校:\n\nIP地址:\n\nDNS:\n\n校园网\n\n账号:\n\n密码:",
+                    IDC_PEIZHI2,17,146,38,95
+    CONTROL         "最强",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,58,91,31,
+                    12
+    CONTROL         "中等",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,130,91,31,
+                    12
+    CONTROL         "较弱",IDC_RADIO3,"Button",BS_AUTORADIOBUTTON,217,91,31,
+                    12
+    CONTROL         "隐藏WiFi",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,59,103,69,11
+    CONTROL         "IPAddress1",IDC_IPADDRESS1,"SysIPAddress32",WS_TABSTOP,
+                    54,159,70,14
+    EDITTEXT        IDC_EDIT6,59,205,194,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT7,60,223,192,14,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "一键配置",IDC_PEIZHI,10,266,247,26
+    LTEXT           "机器码:\n\n注册码",IDC_ZHUCE1,10,59,31,27
+    EDITTEXT        IDC_EDIT8,36,54,161,16,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT9,35,72,161,16,ES_AUTOHSCROLL
+    LTEXT           "注册状态:",IDC_ZHUCE2,207,58,42,12
+    LTEXT           "未注册",IDC_ZHUCE3,207,77,44,13
+    PUSHBUTTON      "注册",IDC_ZHUCE,10,266,247,26
+    LTEXT           "1.连接到路由器\n\n2.管理路由器\n\n3.检查网线连接\n\n4.检查客户端程序\n\n5.检查账号\n\n6.检查密码\n\n7.检查IP和MAC绑定\n\n8.检查账号余额\n\n9.检查网络连接\n\n10.检查DNS",
+                    IDC_JIANCE1,22,67,72,157
+    GROUPBOX        "错误原因",IDC_JIANCE2,15,47,244,215
+    LTEXT           "待检测",IDC_STATE1,116,66,43,12
+    LTEXT           "待检测",IDC_STATE2,115,82,43,12
+    LTEXT           "待检测",IDC_STATE3,115,98,43,12
+    LTEXT           "待检测",IDC_STATE4,115,114,43,12
+    LTEXT           "待检测",IDC_STATE5,115,130,43,12
+    LTEXT           "待检测",IDC_STATE6,115,146,43,12
+    LTEXT           "待检测",IDC_STATE7,115,162,43,12
+    LTEXT           "待检测",IDC_STATE8,115,178,43,12
+    LTEXT           "待检测",IDC_STATE9,115,194,43,12
+    LTEXT           "待检测",IDC_STATE10,115,210,43,12
+    PUSHBUTTON      "检测",IDC_JIANCE,10,265,247,26
+    EDITTEXT        IDC_EDIT10,159,66,92,155,ES_MULTILINE
+    PUSHBUTTON      "官网",IDC_GUANWANG,208,59,54,22
+    PUSHBUTTON      "升级",IDC_SHENGJI,208,91,54,22
+    CONTROL         130,IDC_STATIC,"Static",SS_BITMAP,275,7,32,32
+    LTEXT           "状态：未连接       Ping：0ms       版本：1.0       更新：最新版    官网： www.wifewifi.com    已启动0:00:00",
+                    IDC_STATIC,7,316,431,14
+    CONTROL         "IPAddress1",IDC_IPADDRESS2,"SysIPAddress32",WS_TABSTOP,
+                    124,159,70,14
+    CONTROL         "IPAddress1",IDC_IPADDRESS3,"SysIPAddress32",WS_TABSTOP,
+                    194,159,70,14
+    CONTROL         "IPAddress1",IDC_IPADDRESS4,"SysIPAddress32",WS_TABSTOP,
+                    58,175,70,14
+    CONTROL         "IPAddress1",IDC_IPADDRESS5,"SysIPAddress32",WS_TABSTOP,
+                    128,175,70,14
+    EDITTEXT        IDC_EDIT2,17,51,248,209,ES_MULTILINE
+    EDITTEXT        IDC_EDIT3,10,52,255,237,ES_MULTILINE
+    EDITTEXT        IDC_EDIT11,9,97,250,167,ES_MULTILINE
+    COMBOBOX        IDC_COMBO1,69,7,178,115,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO2,56,143,208,101,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "\0"
+            VALUE "FileDescription", "wifewifi Microsoft 基础类应用程序\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "wifewifi\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2016\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "wifewifi.EXE\0"
+            VALUE "ProductName", "wifewifi 应用程序\0"
+            VALUE "ProductVersion", "1, 0, 0, 1\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_WIFEWIFI_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 449
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 330
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_BITMAP1             BITMAP  DISCARDABLE     "res\\bitmap1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_WIFEWIFI_DIALOG DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 17, 0
+0xebc7, 0xa1d1, 0xf1d4, 0xb7c2, 0xc9d3, 0xf7c6, 0xcdd0, 0xc5ba, "\000" 
+    IDC_COMBO1, 0x403, 10, 0
+0x4c54, 0x572d, 0x3752, 0x3330, 0x004e, 
+    IDC_COMBO1, 0x403, 10, 0
+0x4c54, 0x572d, 0x3852, 0x3234, 0x004e, 
+    IDC_COMBO1, 0x403, 10, 0
+0x4c54, 0x572d, 0x3752, 0x3034, 0x004e, 
+    IDC_COMBO1, 0x403, 8, 0
+0x4944, 0x2d52, 0x3136, 0x0035, 
+    IDC_COMBO1, 0x403, 7, 0
+0x4748, 0x3532, 0x6435, "\000" 
+    IDC_COMBO2, 0x403, 19, 0
+0xebc7, 0xa1d1, 0xf1d4, 0xe3c4, 0xf9cb, 0xdad4, 0xc4b5, 0xf3b4, 0xa7d1, 
+"\000" 
+    IDC_COMBO2, 0x403, 21, 0
+0xfeb9, 0xfbb6, 0xf5b1, 0xa4b9, 0xb5d2, 0xf3b4, 0xa7d1, 0xcd28, 0xbafe, 
+0x29a3, "\000" 
+    IDC_COMBO2, 0x403, 15, 0
+0xbdc9, 0xabb6, 0xf3b4, 0xa7d1, 0xcd28, 0xbafe, 0x29a3, "\000" 
+    0
+END
+
+#endif    // Chinese (中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\wifewifi.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+
