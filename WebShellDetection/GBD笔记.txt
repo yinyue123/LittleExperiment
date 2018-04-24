@@ -1,0 +1,91 @@
+gdb用法
+gcc -g 
+gdb test
+break main
+run
+next
+continue
+
+quit退出gdb
+
+list(l)	查看代码
+
+1.启动gdb
+	1..gdb程序名字
+	2..gdb		//启动gdb
+	   file 程序名字
+2.查看程序
+	list(l)
+	list 开始位置，结束位置
+	list ，结束位置 显示从当前行到last行之间的源代码
+	list + 往后显示源代码
+3.打断点
+	break(b)函数名
+	break(b)行号
+	break(b)文件名:行号
+	break(b)行号if条件	b 5 if i=10
+
+	break 地址
+	break 空 下条停住
+	break +offset当前下多少后步停住
+	break -offset
+4.查看所有设置的断点
+	info break
+5.删除断点	
+	delete break
+6.开始运行程序
+	run(r)
+7.单步运行程序(不进入子函数)
+	next(n)
+8.单步运行程序(进入子函数)
+	step(s)
+9.继续运行程序
+	continue(c)(fg)
+
+10.查看指定变量值
+	print(p)变量名
+	print /格式 变量名 print /x i 按16进制输出
+11.运行程序，直到当前函数结束
+	finish
+12.对指定的变量进行监控
+	watch 变量名 对指定变量进行监控
+	rwatch 当表达式被读停住程序
+	awatch 当表达式被读被写停住程序
+13.退出gdb
+	quit(q)
+
+14.查看函数调用栈(查看程序崩溃错误)
+	backtrace
+15.
+	frame
+16.指定参数
+	set args	(ep:set args 10 20 30 40 50)
+	show args	查看配置好的运行参数
+17.运行环境
+	path		可设置程序的运行路径
+	show paths	(查看程序的运行路径)
+	set environment varname [=value]配置环境变量(ep:set env USER=hchen)
+	show environment[varname]查看环境变量
+:可以重定向
+18.查看内存
+	examine(x)	(x/<n/f/u> <addr> n显示长度 f显示格式(s字符串) i指令地址 u往后请求字节数(b表示1个字节 h2 w4 g8) <addr>表示一个内存地址)
+19.每次断点都显示某个值
+	display
+20.查看寄存器
+	info registers
+	info all-registers
+21.改变变量值
+	p i=10	(输出变量为10)
+22.跳转执行(乱序执行，最好在同一个函数中运行)
+	jump 行号
+	jump 文件名:行号
+	jump 地址
+23.强制函数返回
+	return 表达式 对于有返回值的函数，强制进行返回
+24.反编译函数
+	disassemble(disass)
+	disass func_name	//反编译函数
+	disass 0X0 0X10		//反编译地址
+	info line main		//查看开始位置
+	info line *0x804847f	//查看指定位置
+	disassemble		//不带参数，选择附近的函数

